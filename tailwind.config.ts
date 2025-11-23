@@ -47,6 +47,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        gold: {
+          light: "hsl(var(--gold-light))",
+          glow: "hsl(var(--gold-glow))",
+        },
+        emerald: {
+          DEFAULT: "hsl(var(--emerald))",
+          light: "hsl(var(--emerald-light))",
+        },
+        terracotta: "hsl(var(--terracotta))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -57,6 +66,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+      },
+      backgroundImage: {
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-subtle': 'var(--gradient-subtle)',
+        'gradient-gold': 'var(--gradient-gold)',
+      },
+      boxShadow: {
+        elegant: 'var(--shadow-elegant)',
+        glow: 'var(--shadow-glow)',
+      },
+      transitionProperty: {
+        smooth: 'var(--transition-smooth)',
       },
       borderRadius: {
         lg: "var(--radius)",
