@@ -1,67 +1,80 @@
+import { Sparkles, Hand, Eye, Heart } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Sparkles, Hand, Footprints, Heart, Scissors } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
-    icon: Scissors,
-    title: "Hair Treatments",
-    description: "Natural hair care, protective styles, silk press, treatments, and cuts celebrating African hair textures.",
-  },
-  {
     icon: Hand,
-    title: "Manicure",
-    description: "Luxurious nail care with premium products, gel, acrylics, and artistic nail designs.",
+    title: "Manicure & Pedicure",
+    description: "Premium nail care services including gel polish, acrylics, nail art, and spa treatments for hands and feet.",
   },
   {
-    icon: Footprints,
-    title: "Pedicure",
-    description: "Complete foot care treatments with relaxing soaks, scrubs, and beautiful polish applications.",
+    icon: Eye,
+    title: "Cluster Eyelashes",
+    description: "Professional eyelash enhancement services for a natural or dramatic look that enhances your beauty.",
   },
   {
     icon: Heart,
-    title: "Massage Therapy",
-    description: "Therapeutic massages to relieve tension, promote relaxation, and rejuvenate your body.",
+    title: "Swedish & Aroma Massage",
+    description: "Relaxing therapeutic massage treatments combining Swedish techniques with aromatherapy for ultimate wellness.",
   },
   {
     icon: Sparkles,
-    title: "Facials",
-    description: "Customized facial treatments for all skin types with premium products and techniques.",
+    title: "Facial Treatments",
+    description: "Rejuvenating facial treatments tailored to your skin type, leaving you glowing and refreshed.",
   },
 ];
 
 const Services = () => {
+  const handleBookNow = () => {
+    window.open(
+      "https://wa.me/27691297257?text=Hi%2C+I%27m+interested+in+your+beauty+services.",
+      "_blank"
+    );
+  };
+
   return (
-    <section className="py-20 bg-gradient-subtle">
+    <section id="services" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-gold">
-            Our Services
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-charcoal">
+            Our Premium Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Indulge in our comprehensive range of beauty and wellness treatments
+            Experience professional beauty and wellness treatments in a luxurious, welcoming environment
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
           {services.map((service, index) => (
             <Card
-              key={service.title}
-              className="group hover:shadow-elegant transition-smooth border-border/50 animate-slide-up"
+              key={index}
+              className="group hover:shadow-elegant transition-smooth animate-slide-up border-border/50 hover:border-emerald/30"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardHeader>
-                <div className="w-16 h-16 rounded-full bg-gradient-gold flex items-center justify-center mb-4 group-hover:scale-110 transition-smooth shadow-elegant">
-                  <service.icon className="w-8 h-8 text-primary-foreground" />
+                <div className="mb-4 text-emerald group-hover:text-gold transition-colors">
+                  <service.icon size={48} strokeWidth={1.5} />
                 </div>
-                <CardTitle className="text-2xl">{service.title}</CardTitle>
+                <CardTitle className="text-xl text-charcoal">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base">
+                <CardDescription className="text-muted-foreground">
                   {service.description}
                 </CardDescription>
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Button
+            size="lg"
+            className="bg-emerald text-white hover:bg-emerald-light hover:shadow-glow transform hover:scale-105"
+            onClick={handleBookNow}
+          >
+            Book Your Service
+          </Button>
         </div>
       </div>
     </section>

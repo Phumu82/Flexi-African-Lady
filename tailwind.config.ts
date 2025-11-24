@@ -47,15 +47,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: {
-          light: "hsl(var(--gold-light))",
-          glow: "hsl(var(--gold-glow))",
-        },
         emerald: {
           DEFAULT: "hsl(var(--emerald))",
           light: "hsl(var(--emerald-light))",
         },
-        terracotta: "hsl(var(--terracotta))",
+        "earth-brown": "hsl(var(--earth-brown))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+        },
+        beige: "hsl(var(--beige))",
+        charcoal: "hsl(var(--charcoal))",
+        cream: "hsl(var(--cream))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -71,6 +74,7 @@ export default {
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-subtle': 'var(--gradient-subtle)',
         'gradient-gold': 'var(--gradient-gold)',
+        'gradient-emerald': 'var(--gradient-emerald)',
       },
       boxShadow: {
         elegant: 'var(--shadow-elegant)',

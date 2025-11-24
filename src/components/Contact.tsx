@@ -1,112 +1,106 @@
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+
+const contactInfo = [
+  {
+    icon: MapPin,
+    title: "Visit Us",
+    content: "Johannesburg, South Africa",
+  },
+  {
+    icon: Phone,
+    title: "Call Us",
+    content: "069 129 7257",
+  },
+  {
+    icon: Mail,
+    title: "Email Us",
+    content: "info@flexiafricanlady.co.za",
+  },
+  {
+    icon: Clock,
+    title: "Opening Hours",
+    content: "Mon - Sat: 9:00 AM - 6:00 PM\nSunday: By Appointment",
+  },
+];
 
 const Contact = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.open(
+      "https://wa.me/27691297257?text=Hi%2C+I%27d+like+to+get+in+touch+with+you.",
+      "_blank"
+    );
+  };
+
   return (
-    <section className="py-20 bg-gradient-subtle">
+    <section id="contact" className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-gold">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-charcoal">
             Get in Touch
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Book your appointment or reach out for any inquiries
+            Have questions about our services or training courses? We'd love to hear from you!
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <Card className="animate-slide-up shadow-elegant">
+          <Card className="border-2 border-border/50 shadow-elegant">
             <CardHeader>
-              <CardTitle className="text-2xl">Send us a Message</CardTitle>
-              <CardDescription>We'll get back to you as soon as possible</CardDescription>
+              <CardTitle className="text-2xl text-charcoal">Send Us a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <Input placeholder="Your Name" className="bg-background" />
+                  <Input placeholder="Your Name" required className="border-border/50" />
                 </div>
                 <div>
-                  <Input type="email" placeholder="Your Email" className="bg-background" />
+                  <Input type="email" placeholder="Your Email" required className="border-border/50" />
                 </div>
                 <div>
-                  <Input type="tel" placeholder="Phone Number" className="bg-background" />
+                  <Input type="tel" placeholder="Phone Number" className="border-border/50" />
                 </div>
                 <div>
-                  <Textarea placeholder="Your Message" rows={5} className="bg-background" />
+                  <Textarea
+                    placeholder="Your Message"
+                    required
+                    rows={5}
+                    className="border-border/50 resize-none"
+                  />
                 </div>
-                <Button variant="default" size="lg" className="w-full">
-                  Send Message
+                <Button
+                  type="submit"
+                  className="w-full bg-emerald text-white hover:bg-emerald-light hover:shadow-glow"
+                >
+                  Send Message via WhatsApp
                 </Button>
               </form>
             </CardContent>
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-6 animate-fade-in">
-            <Card className="shadow-elegant">
-              <CardContent className="flex items-start gap-4 pt-6">
-                <div className="w-12 h-12 rounded-full bg-gradient-gold flex items-center justify-center shrink-0">
-                  <MapPin className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Visit Us</h3>
-                  <p className="text-muted-foreground">
-                    123 Beauty Boulevard<br />
-                    City Center, State 12345
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-elegant">
-              <CardContent className="flex items-start gap-4 pt-6">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center shrink-0">
-                  <Phone className="w-6 h-6 text-secondary-foreground" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Call Us</h3>
-                  <p className="text-muted-foreground">
-                    +1 (555) 123-4567<br />
-                    +1 (555) 987-6543
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-elegant">
-              <CardContent className="flex items-start gap-4 pt-6">
-                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center shrink-0">
-                  <Mail className="w-6 h-6 text-accent-foreground" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Email Us</h3>
-                  <p className="text-muted-foreground">
-                    info@flexiafricanlady.com<br />
-                    booking@flexiafricanlady.com
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-elegant">
-              <CardContent className="flex items-start gap-4 pt-6">
-                <div className="w-12 h-12 rounded-full bg-gradient-gold flex items-center justify-center shrink-0">
-                  <Clock className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-2">Opening Hours</h3>
-                  <p className="text-muted-foreground">
-                    Monday - Friday: 9:00 AM - 7:00 PM<br />
-                    Saturday: 9:00 AM - 6:00 PM<br />
-                    Sunday: 10:00 AM - 4:00 PM
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="space-y-6">
+            {contactInfo.map((info, index) => (
+              <Card
+                key={index}
+                className="border-2 border-border/50 hover:border-gold/50 transition-smooth hover:shadow-elegant"
+              >
+                <CardContent className="flex items-start gap-4 p-6">
+                  <div className="text-emerald mt-1">
+                    <info.icon size={32} strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2 text-charcoal">{info.title}</h3>
+                    <p className="text-muted-foreground whitespace-pre-line">{info.content}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

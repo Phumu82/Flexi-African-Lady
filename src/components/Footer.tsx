@@ -1,86 +1,156 @@
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    window.open(
+      "https://wa.me/27691297257?text=Hi%2C+I%27d+like+to+subscribe+to+your+newsletter.",
+      "_blank"
+    );
+  };
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <footer className="bg-foreground text-background py-12">
+    <footer className="bg-earth-brown text-white py-16">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          <div>
-            <h3 className="text-2xl font-bold mb-4 text-primary">Flexi African Lady</h3>
-            <p className="text-background/80 mb-4">
-              Your premier destination for natural hair care and luxurious beauty treatments.
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Brand Section */}
+          <div className="space-y-4">
+            <img src={logo} alt="Flexi African Lady" className="h-20 w-auto mb-4" />
+            <p className="text-white/80 leading-relaxed">
+              Empowering African beauty and wellness through professional services and certified training courses.
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-primary/90 transition-smooth"
+                href="https://www.facebook.com/profile.php?id=100063554119106"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold hover:text-gold-light transition-colors hover:scale-110 transform"
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5 text-primary-foreground" />
+                <Facebook size={28} />
               </a>
               <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/90 transition-smooth"
-                aria-label="Instagram"
+                href="https://www.tiktok.com/@allaabout_beauty45"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold hover:text-gold-light transition-colors hover:scale-110 transform"
+                aria-label="TikTok"
               >
-                <Instagram className="w-5 h-5 text-secondary-foreground" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-accent flex items-center justify-center hover:bg-accent/90 transition-smooth"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5 text-accent-foreground" />
+                <Send size={28} />
               </a>
             </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-background/80">
+            <h3 className="text-xl font-bold mb-4 text-gold">Quick Links</h3>
+            <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-primary transition-smooth">
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="text-white/80 hover:text-gold transition-colors"
+                >
                   About Us
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-smooth">
+                <button
+                  onClick={() => scrollToSection("services")}
+                  className="text-white/80 hover:text-gold transition-colors"
+                >
                   Services
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-smooth">
-                  Book Appointment
-                </a>
+                <button
+                  onClick={() => scrollToSection("courses")}
+                  className="text-white/80 hover:text-gold transition-colors"
+                >
+                  Training Courses
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-smooth">
+                <button
+                  onClick={() => scrollToSection("gallery")}
+                  className="text-white/80 hover:text-gold transition-colors"
+                >
+                  Gallery
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="text-white/80 hover:text-gold transition-colors"
+                >
                   Contact
-                </a>
+                </button>
               </li>
             </ul>
           </div>
 
+          {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
-            <p className="text-background/80 mb-4">
-              Subscribe to get special offers and beauty tips
+            <h3 className="text-xl font-bold mb-4 text-gold">Contact Info</h3>
+            <ul className="space-y-3 text-white/80">
+              <li>
+                <span className="block font-semibold text-white">Phone:</span>
+                <a href="tel:+27691297257" className="hover:text-gold transition-colors">
+                  069 129 7257
+                </a>
+              </li>
+              <li>
+                <span className="block font-semibold text-white">Email:</span>
+                <a href="mailto:info@flexiafricanlady.co.za" className="hover:text-gold transition-colors">
+                  info@flexiafricanlady.co.za
+                </a>
+              </li>
+              <li>
+                <span className="block font-semibold text-white">Location:</span>
+                Johannesburg, South Africa
+              </li>
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div>
+            <h3 className="text-xl font-bold mb-4 text-gold">Stay Updated</h3>
+            <p className="text-white/80 mb-4">
+              Subscribe to get updates on new services and training courses.
             </p>
-            <div className="flex gap-2">
-              <input
+            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+              <Input
                 type="email"
                 placeholder="Your email"
-                className="flex-1 px-4 py-2 rounded-lg bg-background/10 border border-background/20 text-background placeholder:text-background/50 focus:outline-none focus:border-primary"
+                required
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
               />
-              <button className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-smooth">
+              <Button
+                type="submit"
+                className="w-full bg-gold text-charcoal hover:bg-gold-light hover:shadow-glow"
+              >
                 Subscribe
-              </button>
-            </div>
+              </Button>
+            </form>
           </div>
         </div>
 
-        <div className="border-t border-background/20 pt-8 text-center text-background/70">
-          <p>&copy; {new Date().getFullYear()} Flexi African Lady. All rights reserved.</p>
+        {/* Bottom Bar */}
+        <div className="border-t border-white/20 pt-8 text-center">
+          <p className="text-white/60">
+            © {currentYear} Flexi African Lady. All rights reserved. Beauty & Wellness Is Our Game.
+          </p>
         </div>
       </div>
     </footer>
