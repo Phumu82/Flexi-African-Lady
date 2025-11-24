@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import nails1 from "@/assets/gallery/nails-1.jpg";
 import nails2 from "@/assets/gallery/nails-2.jpg";
 import nails3 from "@/assets/gallery/nails-3.jpg";
@@ -40,6 +41,10 @@ const galleryImages = [
 ];
 
 const Gallery = () => {
+  const handleViewGallery = () => {
+    window.location.href = "/gallery";
+  };
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -74,6 +79,17 @@ const Gallery = () => {
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* View Gallery Button */}
+        <div className="text-center mt-12">
+          <Button
+            size="lg"
+            className="bg-gold text-charcoal hover:bg-gold-light hover:shadow-glow transform hover:scale-105"
+            onClick={handleViewGallery}
+          >
+            View Full Gallery
+          </Button>
         </div>
       </div>
     </section>

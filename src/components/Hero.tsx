@@ -10,10 +10,11 @@ const Hero = () => {
   };
 
   const handleBookNow = () => {
-    window.open(
-      "https://wa.me/27691297257?text=Hi%2C+I%27m+interested+in+your+beauty+services+or+training+courses.",
-      "_blank"
-    );
+    window.location.href = "/services";
+  };
+
+  const handleViewCourses = () => {
+    window.location.href = "/courses";
   };
 
   return (
@@ -31,7 +32,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center animate-fade-in">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
-          Empowering African Beauty & Wellness
+          Flexi African Lady
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-white/95 max-w-3xl mx-auto drop-shadow-md">
           Professional beauty services and hands-on training designed to transform your skills and confidence.
@@ -52,7 +53,7 @@ const Hero = () => {
             variant="outline"
             size="lg"
             className="min-w-48 bg-white/20 backdrop-blur-sm border-white/50 text-white hover:bg-white/30 hover:border-white"
-            onClick={() => scrollToSection("courses")}
+            onClick={handleViewCourses}
           >
             View Training Courses
           </Button>

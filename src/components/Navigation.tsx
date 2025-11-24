@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,20 +20,35 @@ const Navigation = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setIsMobileMenuOpen(false);
+    if (!isHomePage) {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleNavigate = (path: string) => {
+    navigate(path);
+    setIsMobileMenuOpen(false);
   };
 
   const navLinks = [
-    { name: "Home", id: "hero" },
-    { name: "Services", id: "services" },
-    { name: "Courses", id: "courses" },
-    { name: "Gallery", id: "gallery" },
-    { name: "About", id: "about" },
-    { name: "Contact", id: "contact" },
+    { name: "Home", id: "hero", path: "/" },
+    { name: "Services", id: "services", path: "/services" },
+    { name: "Courses", id: "courses", path: "/courses" },
+    { name: "Gallery", id: "gallery", path: "/gallery" },
+    { name: "About", id: "about", path: "/" },
+    { name: "Contact", id: "contact", path: "/" },
   ];
 
   return (
@@ -41,8 +60,12 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => scrollToSection("hero")}>
-            <img src={logo} alt="Flexi African Lady Logo" className="h-16 w-auto" />
+          <div 
+            className="flex-shrink-0 cursor-pointer flex items-center gap-3"
+            onClick={() => handleNavigate("/")}
+          >
+            <img src={logo} alt="Flexi African Lady Logo" className="h-12 w-auto" />
+            <span className="text-xl md:text-2xl font-bold text-gold">Flexi African Lady</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -50,7 +73,11 @@ const Navigation = () => {
             {navLinks.map((link) => (
               <button
                 key={link.id}
-                onClick={() => scrollToSection(link.id)}
+                onClick={() => 
+                  link.path === "/" && link.id !== "hero" 
+                    ? scrollToSection(link.id) 
+                    : handleNavigate(link.path)
+                }
                 className="text-white hover:text-gold transition-colors font-medium"
               >
                 {link.name}
@@ -86,7 +113,11 @@ const Navigation = () => {
               {navLinks.map((link) => (
                 <button
                   key={link.id}
-                  onClick={() => scrollToSection(link.id)}
+                  onClick={() => 
+                    link.path === "/" && link.id !== "hero" 
+                      ? scrollToSection(link.id) 
+                      : handleNavigate(link.path)
+                  }
                   className="text-white hover:text-gold transition-colors font-medium text-left px-4"
                 >
                   {link.name}
