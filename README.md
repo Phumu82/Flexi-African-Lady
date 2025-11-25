@@ -1,73 +1,128 @@
-# Welcome to your Lovable project
+Flexi African Lady – Beauty, Cosmetic & Wellness Website
 
-## Project info
+Created by: PHUMU82
 
-**URL**: https://lovable.dev/projects/44801f89-5576-451d-acc0-472b20a3e5c4
+This repository contains the full source code for the Flexi African Lady beauty, cosmetic, and wellness website.
+The platform showcases services, pricing, premium treatments, course offerings, and automated booking features for clients.
 
-## How can I edit this code?
+📌 About the Project
 
-There are several ways of editing your application.
+Flexi African Lady is a modern, responsive website built to highlight:
 
-**Use Lovable**
+Beauty & wellness treatments
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/44801f89-5576-451d-acc0-472b20a3e5c4) and start prompting.
+Nail, hair, and massage services
 
-Changes made via Lovable will be committed automatically to this repo.
+Training courses with clear pricing & duration
 
-**Use your preferred IDE**
+Premium hidden services (e.g., waxing)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Automated WhatsApp service booking
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+A clean, elegant visual brand experience
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+🛠 Technologies Used
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+React
 
-## How can I deploy this project?
+TypeScript
 
-Simply open [Lovable](https://lovable.dev/projects/44801f89-5576-451d-acc0-472b20a3e5c4) and click on Share -> Publish.
+Vite
 
-## Can I connect a custom domain to my Lovable project?
+Tailwind CSS
 
-Yes, you can!
+shadcn-ui
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+These tools ensure a fast, modern, and scalable frontend.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+🧩 How to Edit the Code (Locally)
+1. Clone the Repository
+git clone <YOUR_GIT_URL>
+
+2. Navigate to the Project Folder
+cd <YOUR_PROJECT_NAME>
+
+3. Install Dependencies
+npm i
+
+4. Start the Development Server
+npm run dev
+
+
+Your browser will open with live reloading enabled.
+
+✏️ Editing Code
+
+You may edit this project using:
+
+Any local IDE (VS Code, WebStorm, etc.)
+
+Modify files inside /src
+
+Save to refresh the preview
+
+Commit & push changes once ready
+
+Directly in GitHub
+
+Open any file
+
+Click the pencil icon
+
+Edit → Commit changes
+
+GitHub Codespaces
+
+Open the repo
+
+Click Code → Codespaces → New Codespace
+
+Edit files in the online VS Code environment
+
+Commit & push when done
+
+🚀 Deployment
+
+This project can be deployed on any static hosting service:
+
+Vercel
+
+Netlify
+
+Cloudflare Pages
+
+GitHub Pages
+
+Hostinger / GoDaddy / cPanel
+
+Running:
+
+npm run build
+
+
+will generate production files inside the /dist folder.
+
+🌍 Custom Domain Support
+
+You may connect a domain using your hosting provider:
+
+Add DNS records
+
+Point to your deployment platform
+
+Upload your /dist folder (if using cPanel hosting)
+
+If you want, I can create a step-by-step domain setup guide for your hosting company.
+
+📜 Scripts Summary
+Command	Action
+npm i	Install dependencies
+npm run dev	Start development
+npm run build	Create production build
+npm run preview: Preview the production build
+👤 Author
+
+Created by: PHUMU82
+Developer & designer behind the Flexi African Lady website.
