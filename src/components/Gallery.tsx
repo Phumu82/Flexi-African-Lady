@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import nails1 from "@/assets/gallery/nails-1.jpg";
 import nails2 from "@/assets/gallery/nails-2.jpg";
 import nails3 from "@/assets/gallery/nails-3.jpg";
@@ -41,8 +42,10 @@ const galleryImages = [
 ];
 
 const Gallery = () => {
+  const navigate = useNavigate();
+
   const handleViewGallery = () => {
-    window.location.href = "/gallery";
+    navigate("/gallery");
   };
 
   return (
