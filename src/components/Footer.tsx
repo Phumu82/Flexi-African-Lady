@@ -33,7 +33,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://www.facebook.com/profile.php?id=100063554119106"
+                href="https://www.facebook.com/FlexiAfricanLady"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gold hover:text-gold-light transition-colors hover:scale-110 transform"
