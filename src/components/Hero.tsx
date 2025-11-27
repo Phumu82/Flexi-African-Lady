@@ -1,25 +1,24 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-beauty-spa.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const navigate = useNavigate();
 
   const handleBookNow = () => {
-    window.location.href = "/services";
+    navigate("/services");
   };
 
   const handleViewCourses = () => {
-    window.location.href = "/courses";
+    navigate("/courses");
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image with Overlay */}
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+    >
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
@@ -34,12 +33,16 @@ const Hero = () => {
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
           Flexi African Lady
         </h1>
+
         <p className="text-xl md:text-2xl mb-8 text-white/95 max-w-3xl mx-auto drop-shadow-md">
-          Professional beauty services and hands-on training designed to transform your skills and confidence.
+          Professional beauty services and hands-on training designed to
+          transform your skills and confidence.
         </p>
+
         <p className="text-lg md:text-xl mb-10 text-white/90 max-w-2xl mx-auto drop-shadow-md italic">
           Beauty & Wellness Is Our Game
         </p>
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             variant="default"
@@ -49,6 +52,7 @@ const Hero = () => {
           >
             Book an Appointment
           </Button>
+
           <Button
             variant="outline"
             size="lg"
@@ -57,13 +61,6 @@ const Hero = () => {
           >
             View Training Courses
           </Button>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/70 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse" />
         </div>
       </div>
     </section>
